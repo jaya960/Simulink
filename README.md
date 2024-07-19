@@ -29,3 +29,36 @@ This pseudocode describes the logic for choosing a driving mode.<br>
 You will model the boolean statements in this step, then add the logic.
 Add three Compare to Constant blocks to the model. Set their conditions accordingly.
 Connect the blocks to their appropriate signals (e.g. >= 3 is related to acceleration). Remember you can branch any signal by using the right mouse button to click and drag.
+
+# Step 3
+Add a Logical Operator block to the model. Use the default Operator value, AND. Connect the appropriate Compare to Constant blocks to create the statement: <br>
+
+        speed >= 35 km/h AND abs(lateral acceleration) >= 3 m/s2
+
+# Step 4
+Add a second Logical Operator block to the model. Change its Operator to OR. Connect the blocks to create the statement: <br>
+
+        (speed >= 100 km/h) OR (speed >= 35 km/h AND abs(lateral acceleration) >= 3 m/s2)
+
+# Step 5
+The final step is to add the logical statement, described here: <br>
+
+    if (speed >= 100 km/h) OR (speed >= 35 km/h AND abs(lateral acceleration) >= 3 m/s2)
+   
+        use mode 2
+        
+    else
+    
+        use mode 1
+        
+    end
+
+Add a Switch block to the model and connect the output from the previous task to the control signal. Add two Constant blocks, with values 1 and 2, to represent the driving modes. Connect the blocks to the appropriate locations on the Switch block.
+
+# Step 6
+You successfully modeled the logic for choosing a driving mode based on speed and acceleration data! To verify that this is performing as you expect, try adding a Scope block to the model.
+Use the Scope to view three signals in the same window: speed, acceleration, and mode choice. You can plot the signals on separate axes using the View > Layout menu in the Scope toolbar.
+
+# Observation
+![image](https://github.com/user-attachments/assets/4d508400-743b-40f2-99d2-4756b0d854b5)
+
